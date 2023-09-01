@@ -157,14 +157,17 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
           index = list.findIndex((_) => _.value === value);
         }
 
-        setTimeout(
-          () =>
-            flatListRef.current?.scrollToIndex({
-              index: index == -1 ? 0 : index,
-              animated: false,
-            }),
-          200
-        );
+        // Don't try scroll index is out of range
+        if (index >= 0 && index < list.length) {
+          setTimeout(
+            () =>
+              flatListRef.current?.scrollToIndex({
+                index,
+                animated: false,
+              }),
+            200
+          );
+        }
       }
     }, [visible]);
 
