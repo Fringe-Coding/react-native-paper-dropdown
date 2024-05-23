@@ -303,7 +303,7 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                 }}
                 editable={false}
               />
-              {disabled && (
+              {!!disabled && (
                 <View
                   style={{
                     borderBottomWidth: 1,
