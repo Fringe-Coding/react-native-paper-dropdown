@@ -307,7 +307,7 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                 <View
                   style={{
                     borderBottomWidth: 1,
-                    borderBottomColor: underlineColor || "#D1D1D1",
+                    borderBottomColor: underlineColor || style.color.disabled,
                   }}
                 />
               )}
