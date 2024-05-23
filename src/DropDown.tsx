@@ -1,5 +1,13 @@
 import { useEffect } from "react";
-import { LayoutChangeEvent, View, FlatList } from "react-native";
+import {
+  LayoutChangeEvent,
+  ScrollView,
+  TextStyle,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
+  FlatList,
+} from "react-native";
 import {
   Checkbox,
   Divider,
