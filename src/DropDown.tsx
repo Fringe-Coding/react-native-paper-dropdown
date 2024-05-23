@@ -1,13 +1,5 @@
 import { useEffect } from "react";
-import {
-  LayoutChangeEvent,
-  ScrollView,
-  TextStyle,
-  TouchableWithoutFeedback,
-  View,
-  ViewStyle,
-  FlatList,
-} from "react-native";
+import { LayoutChangeEvent, View, FlatList } from "react-native";
 import {
   Checkbox,
   Divider,
@@ -303,6 +295,14 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                 }}
                 editable={false}
               />
+              {disabled && (
+                <View
+                  style={{
+                    borderBottomWidth: 1,
+                    borderBottomColor: underlineColor || "#D1D1D1", // Ensuring underline is visible
+                  }}
+                />
+              )}
             </View>
           </TouchableRipple>
         }
