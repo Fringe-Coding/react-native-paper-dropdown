@@ -71,6 +71,9 @@ export interface DropDownPropsInterface {
   dense?: boolean;
   iconColor?: string;
   iconStyle?: any;
+  multiline?: boolean;
+  numberOfLines?: number;
+  textInputProps?: React.ComponentProps<typeof TextInput>;
 }
 
 const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
@@ -116,7 +119,7 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
       iconStyle,
       multiline = false,
       numberOfLines = 1,
-      ...rest
+      textInputProps = {},
     } = props;
     const flatListRef = React.useRef<FlatList | null>(null);
     const [displayValue, setDisplayValue] = useState("");
@@ -306,7 +309,7 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                   marginLeft: 0,
                 }}
                 editable={false}
-                {...rest}
+                {...textInputProps}
               />
               {!!disabled && (
                 <View
