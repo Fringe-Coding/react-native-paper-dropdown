@@ -25,6 +25,7 @@ import React, {
   Fragment,
 } from "react";
 import { Theme } from "react-native-paper/lib/typescript/types";
+import { rest } from "@feathersjs/client";
 
 const { useUpdate } = require("@hashiprobr/react-use-mount-and-update");
 
@@ -113,6 +114,9 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
       dense,
       iconColor,
       iconStyle,
+      multiline = false,
+      numberOfLines = 1,
+      ...rest
     } = props;
     const flatListRef = React.useRef<FlatList | null>(null);
     const [displayValue, setDisplayValue] = useState("");
@@ -289,8 +293,8 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                 outlineColor={outlineColor}
                 activeOutlineColor={activeOutlineColor}
                 dense={dense}
-                multiline={false}
-                numberOfLines={1}
+                multiline={multiline}
+                numberOfLines={numberOfLines}
                 style={{
                   ...style,
                   flexGrow: 1,
@@ -302,6 +306,7 @@ const DropDown = forwardRef<TouchableWithoutFeedback, DropDownPropsInterface>(
                   marginLeft: 0,
                 }}
                 editable={false}
+                {...rest}
               />
               {!!disabled && (
                 <View
